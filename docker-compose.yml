@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    #this below ensures that the nginx service waits for the node-app to be ready before starting
+    depends_on: 
+      - node-app
+
+  node-app:
+    build:
+      context: ./node_app
+    # no need to expose ports here since nginx will handle the routing
+    # ports:
+    #   - "3000:3000"

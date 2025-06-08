@@ -24,7 +24,4 @@
 
 ---
 
-## 🛠️ How To Run It
-
-> Make sure Docker and Docker Compose are installed on your system.
 
